@@ -1,0 +1,225 @@
+{
+    "name": "Generate LinkedIn posts-AI (Template)",
+    "flow": [
+        {
+            "id": 36,
+            "module": "util:FunctionIncrement",
+            "version": 1,
+            "parameters": {
+                "reset": "scenario"
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -897,
+                    "y": -328
+                },
+                "restore": {
+                    "parameters": {
+                        "reset": {
+                            "label": "Never"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "reset",
+                        "type": "select",
+                        "label": "Reset a value",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "run",
+                                "execution",
+                                "scenario"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 37,
+            "module": "google-sheets:filterRows",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": "GOOGLE_CONNECTION_PLACEHOLDER"
+            },
+            "mapper": {
+                "from": "drive",
+                "limit": "1",
+                "filter": [
+                    [
+                        {
+                            "a": "A",
+                            "b": "{{36.i}}",
+                            "o": "text:equal"
+                        }
+                    ]
+                ],
+                "orderBy": "B",
+                "sheetId": "SHEET_NAME_PLACEHOLDER",
+                "fieldType": "string",
+                "sortOrder": "asc",
+                "spreadsheetId": "SPREADSHEET_ID_PLACEHOLDER",
+                "tableFirstRow": "A1:BZ1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "metadata": {
+                "designer": {
+                    "x": -587,
+                    "y": -333
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "Select from My Drive"
+                        },
+                        "orderBy": {
+                            "mode": "chose",
+                            "label": "result (B)"
+                        },
+                        "sheetId": {
+                            "mode": "chose",
+                            "label": "Feuille 4"
+                        },
+                        "fieldType": {
+                            "mode": "chose",
+                            "label": "String"
+                        },
+                        "sortOrder": {
+                            "mode": "chose",
+                            "label": "Ascending"
+                        },
+                        "spreadsheetId": {
+                            "mode": "chose",
+                            "label": "TT"
+                        },
+                        "tableFirstRow": {
+                            "label": "A-BZ"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose",
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "Google connection placeholder"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    
+                ],
+                "interface": [
+                   
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "gemini-ai:createACompletionGeminiPro",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": "GEMINI_API_PLACEHOLDER"
+            },
+            "mapper": {
+                "model": "gemini-2.0-flash",
+                "contents": [
+                    {
+                        "role": "user",
+                        "parts": [
+                            {
+                                "text": "Write a full LinkedIn post, maximum 2999 characters, including relevant emojis. Do not use bold writing. The topic is: {{37.`1`}} , no intro or explanations.",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                ],
+                "generationConfig": {
+                    "thinkingConfig": {}
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": -292,
+                    "y": -337
+                },
+                "restore": {
+                    "expect": {
+                        
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "gemini-ai"
+                            },
+                            "label": "Gemini connection placeholder"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "module": "linkedin:CreatePost",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": "LINKEDIN_CONNECTION_PLACEHOLDER"
+            },
+            "mapper": {
+                "content": "{{5.result}}",
+                "visibility": "PUBLIC",
+                "feedDistribution": "MAIN_FEED",
+                "isReshareDisabledByAuthor": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": -338
+                },
+                "restore": {
+                    "expect": {
+                        
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "linkedin"
+                            },
+                            "label": "LinkedIn profile placeholder"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        
+    }
+}
