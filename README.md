@@ -2,6 +2,12 @@
 
 This mini project is a Make.com automation template that generates a complete LinkedIn post using Gemini and publishes it to your LinkedIn feed. It reads a topic from Google Sheets, prompts Gemini to write a post (≤ 2,999 chars, with relevant emojis, no bold), and then posts to LinkedIn. ✍️🤖➡️🔗
 
+## Demo 🎥
+[Watch the demo (MP4)](assets/Demo.mp4)
+
+<!-- GitHub sometimes sanitizes HTML; keep the markdown link above as the primary. -->
+<video src="assets/Demo.mp4" controls width="720"></video>
+
 ## What’s included 📦
 - `linkdin post generator (Assil).json` — the Make.com scenario JSON containing four steps:
   1) Function increment (run/execution/scenario counter) 🔢
