@@ -1,22 +1,22 @@
-# LinkedIn Post Generator (Make/JSON Template)
+# LinkedIn Post Generator (Make.com / JSON Template) 🚀
 
-This mini project is a Make/automation-template that generates a complete LinkedIn post using Gemini and publishes it to your LinkedIn feed. It reads a topic from Google Sheets, prompts Gemini to write a post (≤ 2,999 chars, with relevant emojis, no bold), and then posts to LinkedIn.
+This mini project is a Make.com automation template that generates a complete LinkedIn post using Gemini and publishes it to your LinkedIn feed. It reads a topic from Google Sheets, prompts Gemini to write a post (≤ 2,999 chars, with relevant emojis, no bold), and then posts to LinkedIn. ✍️🤖➡️🔗
 
-## What’s included
-- `linkdin post generator (Assil).json` — the Make/automation scenario JSON containing four steps:
-  1) Function increment (run/execution/scenario counter)
-  2) Google Sheets: filter one row matching the current counter
-  3) Gemini: generate the LinkedIn post from the sheet topic
-  4) LinkedIn: publish the generated post
+## What’s included 📦
+- `linkdin post generator (Assil).json` — the Make.com scenario JSON containing four steps:
+  1) Function increment (run/execution/scenario counter) 🔢
+  2) Google Sheets: filter one row matching the current counter 📄
+  3) Gemini: generate the LinkedIn post from the sheet topic 🧠
+  4) LinkedIn: publish the generated post 📣
 
-## Prerequisites
-- A Google account with access to the target Google Sheet
-- LinkedIn account with API/app access (via your automation platform connector)
-- Gemini API access/connection
-- An automation platform that supports these modules (e.g., Make) and importing JSON scenarios
+## Prerequisites ✅
+- Google account with access to the target Google Sheet
+- LinkedIn account with API/app access (via Make.com LinkedIn connector)
+- Gemini API access/connection (via Make.com)
+- Make.com account with permission to import JSON scenarios
 
-## Setup
-1) Import the JSON scenario into your automation tool.
+## Setup 🔧
+1) Import the JSON scenario into Make.com.
 2) Replace the placeholder connections in the scenario:
    - `GOOGLE_CONNECTION_PLACEHOLDER`
    - `GEMINI_API_PLACEHOLDER`
@@ -29,15 +29,15 @@ This mini project is a Make/automation-template that generates a complete Linked
 4) Verify the Gemini model (currently `gemini-2.0-flash`) and prompt settings.
 5) Ensure the LinkedIn module targets the correct profile/org and visibility.
 
-## Usage
+## Usage ▶️
 - Add or maintain a topics list in your Google Sheet.
 - Each run increments the counter and fetches the matching row.
 - The generated post (from Gemini) is published directly to LinkedIn.
 
-## Notes
+## Notes 📝
 - Max post length is capped at 2,999 characters per LinkedIn’s limits.
 - Update visibility, feed distribution, and reshare flags as needed.
-- If you prefer a dry run, disable the LinkedIn step and log the generated content first.
+- For a dry run, disable the LinkedIn step and log the generated content first.
 
-## License
+## License 📄
 MIT
