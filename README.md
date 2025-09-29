@@ -5,8 +5,8 @@ This mini project is a Make.com automation template that generates a complete Li
 ## Demo 🎥
 [Watch the demo (MP4)](assets/Demo.mp4)
 
-<!-- GitHub sometimes sanitizes HTML; keep the markdown link above as the primary. -->
-<video src="assets/Demo.mp4" controls width="720"></video>
+<!-- GitHub sometimes sanitizes HTML; the raw URL helps inline playback. -->
+<video src="https://raw.githubusercontent.com/Assil10/LinkedIn-Post-Generator/main/assets/Demo.mp4" controls width="720"></video>
 
 ## What’s included 📦
 - `linkdin post generator (Assil).json` — the Make.com scenario JSON containing four steps:
