@@ -6,6 +6,10 @@ This mini project is a Make.com automation template that generates a complete Li
 [Watch the demo (MP4)](assets/Demo.mp4)
 
 
+https://github.com/user-attachments/assets/33b4d0ac-f358-47d2-a1c5-8e8f1e4fbbcb
+
+
+
 <!-- GitHub sometimes sanitizes HTML; the raw URL helps inline playback. -->
 <video src="https://raw.githubusercontent.com/Assil10/LinkedIn-Post-Generator/main/assets/Demo.mp4" controls width="720"></video>
 
